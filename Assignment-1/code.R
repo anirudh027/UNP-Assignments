@@ -21,7 +21,6 @@ naval_data%>%ggplot(aes(Compressor_decay_state_coefficient))+geom_density()+labs
 
 ggpairs(naval_data,title="Scatterplot")
 
-pairs(naval_data)
 
 #3 Apply Min-Max scaling on the naval dataset.
 
