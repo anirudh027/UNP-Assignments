@@ -17,20 +17,22 @@ head(naval_data)
 
 naval_data%>%ggplot(aes(Compressor_decay_state_coefficient))+geom_density()+labs(title="Density plot")
 
+# Answer: The density plot is close to a continous uniform distribution.
+
 #2 Draw a scatterplot matrix on the naval dataset and watching the diagram name any two features which are linearly related to most of the other features. 
 
-ggpairs(naval_data,title="Scatterplot")
-
-
+  
+pairs(naval_data[,1:18])
 #3 Apply Min-Max scaling on the naval dataset.
 
+scaled_naval_data<-naval_data
 
-for(i in colnames(naval_data)){ 
-  print(naval_data[i])
+
+for(i in  1:ncol(scaled_naval_data)){ 
+  scaled_naval_data[,i]=(scaled_naval_data[,i]-min(scaled_naval_data[,i]))/(max(scaled_naval_data[,i])-min(scaled_naval_data[,i]))
   }
 
-?lapply
-
+head(scaled_naval_data)
 
 #4 From the naval dataset find out mean and median of both the outputs
 
@@ -43,7 +45,7 @@ naval_data%>%summarise(mean_Compressor_decay_state_coefficient=mean(Compressor_d
 
 boston=Boston
 head(boston)
-head(MASS::Boston)
+
 
 #6 Load the Titanic dataset (inbuilt to R), then find out how many male child survived?
 
@@ -54,4 +56,3 @@ titanic%>%filter(Sex=="Male" & Age=="Child" & Survived=="Yes")%>%summarise(male_
 ##How many first class passengers were there? 
 
 titanic%>%filter(Class=="1st")%>%summarise(total_1st_class=sum(Freq))
-  
