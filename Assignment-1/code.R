@@ -15,14 +15,15 @@ head(naval_data)
 # 1. On naval dataset plot a Kernel density of Compressor Decay State Coefficient, and then answer the following question
 #What kind of distribution does Compressor Decay State Coefficient have?
 
-naval_data%>%ggplot(aes(Compressor_decay_state_coefficient))+geom_density()+labs(title="Density plot")
+naval_data%>%ggplot(aes(Compressor_decay_state_coefficient))+geom_density()+labs(title="Density plot") #Plot-1,"Density Plot"
 
 # Answer: The density plot is close to a continous uniform distribution.
 
 #2 Draw a scatterplot matrix on the naval dataset and watching the diagram name any two features which are linearly related to most of the other features. 
 
   
-pairs(naval_data[,1:18])
+pairs(naval_data[,1:18]) #Plot-2 "Scatterplot Matrix"
+
 #3 Apply Min-Max scaling on the naval dataset.
 
 scaled_naval_data<-naval_data
